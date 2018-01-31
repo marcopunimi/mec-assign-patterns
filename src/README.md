@@ -44,13 +44,13 @@ Executable will print both on standard output and on standard error (the latter 
 
  Example of command line uses:
 * this command executes the ILP general solver of CPLEX over the compact model, with no time limit or percentage optimality gap limit
- - ./executable -dp /path/to/paramfile -dd /path/to/distancefile -dt /path/to/demandfile > output.out 2> output.log   
+     - ./executable -dp /path/to/paramfile -dd /path/to/distancefile -dt /path/to/demandfile > output.out 2> output.log   
 * this command executes the ILP general solver of CPLEX over the compact model, with one hour time limit (3600 seconds) and a limit of 1% of optimality gap
- - ./executable -dp /path/to/paramfile -dd /path/to/distancefile -dt /path/to/demandfile -t 3600 -epgap 0.01 > output.out 2> output.log  
+     - ./executable -dp /path/to/paramfile -dd /path/to/distancefile -dt /path/to/demandfile -t 3600 -epgap 0.01 > output.out 2> output.log  
 * this command executes the CG algorithm over the model, stopping at the end of the CG (a time limit can be set with -t option)
- - ./executable -dp /path/to/paramfile -dd /path/to/distancefile -dt /path/to/demandfile -sph > output.out 2> output.log
+     - ./executable -dp /path/to/paramfile -dd /path/to/distancefile -dt /path/to/demandfile -sph > output.out 2> output.log
 * this command executes the branch-and-price algorithm over the model with the split selection branching rule (recommended), stopping when the tree search is empty (a time limit can be set with -t option). 
- - ./executable -dp /path/to/paramfile -dd /path/to/distancefile -dt /path/to/demandfile -spbh s > output.out 2> output.log
+     - ./executable -dp /path/to/paramfile -dd /path/to/distancefile -dt /path/to/demandfile -spbh s > output.out 2> output.log
 
 ------------
 INPUT FILES FORMAT
