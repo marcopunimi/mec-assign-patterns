@@ -1,0 +1,37 @@
+# change CPLEXHOME to you CPLEX installation directory
+CPLEXHOME = /path/to/cplex/home/directory
+SYSTEM = x86-64_linux
+LIBFORMAT = static_pic
+CPLEXDIR = ${CPLEXHOME}/cplex
+CONCERTDIR = ${CPLEXHOME}/concert
+CPLEXBINDIR = $(CPLEXDIR)/bin/$(SYSTEM)
+CPLEXLIBDIR = $(CPLEXDIR)/lib/$(SYSTEM)/$(LIBFORMAT)
+CONCERTLIBDIR = $(CONCERTDIR)/lib/$(SYSTEM)/$(LIBFORMAT)
+CPLEXFLAGS = -I$(CPLEXDIR)/include -I$(CONCERTDIR)/include -L$(CPLEXLIBDIR) -lilocplex -lcplex -L$(CONCERTLIBDIR) -lconcert -lm -lpthread
+CC = g++ -O0 -std=c++11 
+CFLAGS = -g -m64 -O -fPIC -fno-strict-aliasing -fexceptions -DNDEBUG -DIL_STD 
+
+OBJECTS = supportFunctions.o InputDataApCloudletAssoc.o  ShortPathHeur.o ShortPathHeurBP.o  Ap_cloudlet_assoc_model.o main.o
+EXECUTABLE = ApCloudletAssoc
+
+all: $(EXECUTABLE)
+
+$(EXECUTABLE) : $(OBJECTS)
+	$(CC) $(CFLAGS) -o $(EXECUTABLE) $(OBJECTS) $(CPLEXFLAGS)
+
+
+supportFunctions.o: supportFunctions.cpp supportFunctions.hpp 
+	$(CC) $(CFLAGS) -c $< -o $@
+InputDataApCloudletAssoc.o: InputDataApCloudletAssoc.cpp InputDataApCloudletAssoc.hpp
+	$(CC) $(CFLAGS) -c $< -o $@
+ShortPathHeur.o: ShortPathHeur.cpp ShortPathHeur.hpp supportFunctions.hpp InputDataApCloudletAssoc.hpp
+	$(CC) $(CFLAGS) $(CPLEXFLAGS) -c $< -o $@
+ShortPathHeurBP.o: ShortPathHeurBP.cpp ShortPathHeurBP.hpp ShortPathHeur.hpp supportFunctions.hpp InputDataApCloudletAssoc.hpp
+	$(CC) $(CFLAGS) $(CPLEXFLAGS) -c $< -o $@
+Ap_cloudlet_assoc_model.o: ap_cloudlet_assoc_model.cpp ap_cloudlet_assoc_model.hpp InputDataApCloudletAssoc.hpp
+	$(CC) $(CFLAGS) $(CPLEXFLAGS) -c $< -o $@
+main.o: main.cpp ap_cloudlet_assoc_model.hpp ShortPathHeurBP.hpp  ShortPathHeur.hpp ShortPathHeurCycle.hpp GenerAssignHeur.hpp  GenerAssignHeurPricer.hpp InputDataApCloudletAssoc.hpp supportFunctions.hpp 
+	$(CC) $(CFLAGS) $(CPLEXFLAGS) -c $< -o $@
+
+clean :
+	rm -f $(OBJECTS) $(EXECUTABLE)
