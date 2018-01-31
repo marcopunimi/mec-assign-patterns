@@ -73,21 +73,21 @@ Example:\
      - matrix A x K double = distance AP to MEC facility (comma separated values)
      - matrix K x K double = distance facility to facility (comma separated values)
 
-Example:
-3
-2
-1, 1, 1
-2, 2, 1
-3, 4, 7
-0, 2 
-2, 0
+Example: \
+3 \
+2 \
+1, 1, 1 \
+2, 2, 1 \
+3, 4, 7 \
+0, 2  \
+2, 0 
 
 * DEMAND FILE (option file -dt in command line)
      - 1 int = time slot cardinality
      - matrix N x T double = demand nodes in time (comma separeted values)
 
-Example:
-4
-0, 5, 21, 5
-1, 4, 66, 2
+Example: \
+4 \
+0, 5, 21, 5 \
+1, 4, 66, 2 \
 1, 44, 5, 7
