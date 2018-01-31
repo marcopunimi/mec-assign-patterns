@@ -61,10 +61,10 @@ INPUT FILES FORMAT
      - 1 double = U parameter
      - 1 double > 1 = facility percentage extra capacity w.r.t. peak demand in time
     
-Example:
-0.5   
-0.5   
-1
+Example:\
+0.5    
+0.5 \
+1 \
 1.05
      
 * DISTANCE MATRIX FILE (option -dd in command line)
