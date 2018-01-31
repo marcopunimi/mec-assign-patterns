@@ -59,7 +59,7 @@ INPUT FILES FORMAT
      - 1 double = alpha parameter
      - 1 double = beta parameter
      - 1 double = U parameter
-     - 1 double > 1 = cloudlet percentage extra capacity w.r.t. peak demand in time
+     - 1 double > 1 = facility percentage extra capacity w.r.t. peak demand in time
     
 Example:
 0.5   
@@ -69,7 +69,7 @@ Example:
      
 * DISTANCE MATRIX FILE (option -dd in command line)
      - 1 int = AP cardinality
-     - 1 int = cloudlet cardinality
+     - 1 int = facility cardinality
      - matrix A x K double = distance AP to MEC facility (comma separated values)
      - matrix K x K double = distance facility to facility (comma separated values)
 
