@@ -1,5 +1,4 @@
-# mec-assign-patterns
-Optimal Mobile Edge Computing Assignment Patterns
+# Optimal Mobile Edge Computing Assignment Patterns
 
 This repository contains the implementation of the optimization algorithm described in 
 
