@@ -43,7 +43,7 @@ Command line parameters:
 Executable will print both on standard output and on standard error (the latter for log purpose only)
 
 ------------
-USAGE
+USAGES
 ------------
 
  Example of command line usage:
