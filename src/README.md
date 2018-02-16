@@ -42,7 +42,11 @@ Command line parameters:
 
 Executable will print both on standard output and on standard error (the latter for log purpose only)
 
- Example of command line uses:
+------------
+USAGE
+------------
+
+ Example of command line usage:
 * this command executes the ILP general solver of CPLEX over the compact model, with no time limit or percentage optimality gap limit
      - ./executable -dp /path/to/paramfile -dd /path/to/distancefile -dt /path/to/demandfile > output.out 2> output.log   
 * this command executes the ILP general solver of CPLEX over the compact model, with one hour time limit (3600 seconds) and a limit of 1% of optimality gap
